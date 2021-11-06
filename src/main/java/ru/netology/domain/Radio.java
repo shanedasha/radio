@@ -1,15 +1,16 @@
 package ru.netology.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
 public class Radio {
     protected int currentRadioStation = 10;
     protected int currentVolume;
-
-    public Radio() {
-    }
-
-    public Radio (int currentRadioStation) {
-        this.currentRadioStation = currentRadioStation;
-    }
 
     public void setCurrentRadioStation(int currentRadioStation) {
         if (currentRadioStation < 0) {
