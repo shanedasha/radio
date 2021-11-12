@@ -11,16 +11,16 @@ class RadioTest {
         Radio radio = new Radio();
 
         int expected = 10;
-        int actual = radio.currentRadioStation;
+        int actual = radio.countRadioStation;
         assertEquals(expected, actual);
     }
 
     @Test
     public void shouldShowCurrentRadioStation() {
-        Radio radio = new Radio(2);
+        Radio radio = new Radio(3,2);
 
         int expected = 2;
-        int actual = radio.currentRadioStation;
+        int actual = radio.countRadioStation;
         assertEquals(expected, actual);
     }
 
@@ -29,7 +29,7 @@ class RadioTest {
         Radio radio = new Radio();
         radio.setCurrentRadioStation(-1);
         int expected = 10;
-        int actual = radio.getCurrentRadioStation();
+        int actual = radio.getCountRadioStation();
         assertEquals(expected, actual);
     }
 
@@ -38,7 +38,7 @@ class RadioTest {
         Radio radio = new Radio();
         radio.setCurrentRadioStation(4);
         int expected = 4;
-        int actual = radio.getCurrentRadioStation();
+        int actual = radio.getCountRadioStation();
         assertEquals(expected, actual);
     }
 
@@ -47,62 +47,62 @@ class RadioTest {
         Radio radio = new Radio();
         radio.setCurrentRadioStation(11);
         int expected = 10;
-        int actual = radio.getCurrentRadioStation();
+        int actual = radio.getCountRadioStation();
         assertEquals(expected, actual);
     }
 
     @Test
     public void shouldSetNineRadioStation() {
-        Radio radio = new Radio(9);
+        Radio radio = new Radio(5,9);
         radio.increaseRadioStation();
         int expected = 0;
-        int actual = radio.getCurrentRadioStation();
+        int actual = radio.getCountRadioStation();
         assertEquals(expected, actual);
     }
 
 
     @Test
     public void shouldIncreaseRadioStation() {
-        Radio radio = new Radio(8);
+        Radio radio = new Radio(6,8);
         radio.increaseRadioStation();
         int expected = 9;
-        int actual = radio.getCurrentRadioStation();
+        int actual = radio.getCountRadioStation();
         assertEquals(expected, actual);
     }
 
     @Test
     public void shouldDecreaseRadioStation() {
-        Radio radio = new Radio(8);
+        Radio radio = new Radio(6,8);
         radio.decreaseRadioStation();
         int expected = 7;
-        int actual = radio.getCurrentRadioStation();
+        int actual = radio.getCountRadioStation();
         assertEquals(expected, actual);
     }
 
     @Test
     public void shouldDecreaseRadioStationOverNine() {
-        Radio radio = new Radio(10);
+        Radio radio = new Radio(5,10);
         radio.decreaseRadioStation();
         int expected = 9;
-        int actual = radio.getCurrentRadioStation();
+        int actual = radio.getCountRadioStation();
         assertEquals(expected, actual);
     }
 
     @Test
     public void shouldIncreaseRadioStationOverNine() {
-        Radio radio = new Radio(11);
+        Radio radio = new Radio(0,11);
         radio.increaseRadioStation();
         int expected = 0;
-        int actual = radio.getCurrentRadioStation();
+        int actual = radio.getCountRadioStation();
         assertEquals(expected, actual);
     }
 
     @Test
     public void shouldSetZeroRadioStation() {
-        Radio radio = new Radio(0);
+        Radio radio = new Radio(5,0);
         radio.decreaseRadioStation();
         int expected = 9;
-        int actual = radio.getCurrentRadioStation();
+        int actual = radio.getCountRadioStation();
         assertEquals(expected, actual);
     }
 

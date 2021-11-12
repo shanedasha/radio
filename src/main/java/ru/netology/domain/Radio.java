@@ -4,43 +4,41 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 
 public class Radio {
-    protected int currentRadioStation = 10;
     protected int currentVolume;
+    protected int countRadioStation = 10;
 
-    public void setCurrentRadioStation(int currentRadioStation) {
-        if (currentRadioStation < 0) {
+
+    public void setCurrentRadioStation(int countRadioStation) {
+        if (countRadioStation < 0) {
             return;
         }
-        if (currentRadioStation > 9) {
+        if (countRadioStation > 9) {
             return;
         }
-        this.currentRadioStation = currentRadioStation;
+        this.countRadioStation = countRadioStation;
     }
 
     public void increaseRadioStation() {
-        if (currentRadioStation >= 9) {
-            this.currentRadioStation = 0;
+        if (countRadioStation>= 9) {
+            this.countRadioStation = 0;
         } else {
-            this.currentRadioStation = currentRadioStation + 1;
+            this.countRadioStation = countRadioStation + 1;
         }
     }
 
     public void decreaseRadioStation() {
-        if (currentRadioStation == 0) {
-            this.currentRadioStation = 9;
+        if (countRadioStation == 0) {
+            this.countRadioStation = 9;
         } else {
-            this.currentRadioStation = currentRadioStation - 1;
+            this.countRadioStation =countRadioStation - 1;
         }
     }
 
-    public int getCurrentRadioStation() {
-        return currentRadioStation;
-    }
 
     public void setCurrentVolume(int currentVolume) {
         if (currentVolume < 0) {
@@ -68,7 +66,4 @@ public class Radio {
         }
     }
 
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
 }
