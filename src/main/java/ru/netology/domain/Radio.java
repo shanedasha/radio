@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 
 public class Radio {
     protected int currentVolume;
-    protected int countRadioStation = 10;
+    protected int countRadioStation = 9;
 
 
     public void setCurrentRadioStation(int countRadioStation) {
@@ -24,7 +24,7 @@ public class Radio {
     }
 
     public void increaseRadioStation() {
-        if (countRadioStation>= 9) {
+        if (countRadioStation >= 9) {
             this.countRadioStation = 0;
         } else {
             this.countRadioStation = countRadioStation + 1;
@@ -35,7 +35,7 @@ public class Radio {
         if (countRadioStation == 0) {
             this.countRadioStation = 9;
         } else {
-            this.countRadioStation =countRadioStation - 1;
+            this.countRadioStation = countRadioStation - 1;
         }
     }
 
