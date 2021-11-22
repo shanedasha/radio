@@ -4,38 +4,42 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
 
 public class Radio {
     protected int currentVolume;
-    protected int countRadioStation = 9;
+    protected int countRadioStation = 10;
+    protected int currentRadioStation;
 
+    public Radio() {
+    }
 
-    public void setCurrentRadioStation(int countRadioStation) {
-        if (countRadioStation < 0) {
-            return;
-        }
-        if (countRadioStation > 9) {
-            return;
-        }
+    public Radio(int countRadioStation) {
         this.countRadioStation = countRadioStation;
     }
 
+    public void setCurrentRadioStation(int currentRadioStation) {
+        if (currentRadioStation < 0) {
+            return;
+        }
+        if (currentRadioStation > 9) {
+            return;
+        }
+        this.currentRadioStation = currentRadioStation;
+    }
+
     public void increaseRadioStation() {
-        if (countRadioStation >= 9) {
-            this.countRadioStation = 0;
+        if (currentRadioStation >= 9) {
+            this.currentRadioStation = 0;
         } else {
-            this.countRadioStation = countRadioStation + 1;
+            this.currentRadioStation = currentRadioStation + 1;
         }
     }
 
     public void decreaseRadioStation() {
-        if (countRadioStation == 0) {
-            this.countRadioStation = 9;
+        if (currentRadioStation == 0) {
+            this.currentRadioStation = 9;
         } else {
-            this.countRadioStation = countRadioStation - 1;
+            this.currentRadioStation = currentRadioStation - 1;
         }
     }
 
@@ -66,4 +70,19 @@ public class Radio {
         }
     }
 
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    public int getCountRadioStation() {
+        return countRadioStation;
+    }
+
+    public void setCountRadioStation(int countRadioStation) {
+        this.countRadioStation = countRadioStation;
+    }
+
+    public int getCurrentRadioStation() {
+        return currentRadioStation;
+    }
 }
