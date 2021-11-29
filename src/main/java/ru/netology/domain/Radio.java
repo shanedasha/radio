@@ -21,14 +21,14 @@ public class Radio {
         if (currentRadioStation < 0) {
             return;
         }
-        if (currentRadioStation > 9) {
+        if (currentRadioStation > (countRadioStation - 1)) {
             return;
         }
         this.currentRadioStation = currentRadioStation;
     }
 
     public void increaseRadioStation() {
-        if (currentRadioStation >= 9) {
+        if (currentRadioStation >= (countRadioStation - 1)) {
             this.currentRadioStation = 0;
         } else {
             this.currentRadioStation = currentRadioStation + 1;
@@ -37,7 +37,7 @@ public class Radio {
 
     public void decreaseRadioStation() {
         if (currentRadioStation == 0) {
-            this.currentRadioStation = 9;
+            this.currentRadioStation = (countRadioStation - 1);
         } else {
             this.currentRadioStation = currentRadioStation - 1;
         }

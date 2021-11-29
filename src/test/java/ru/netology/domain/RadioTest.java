@@ -199,4 +199,13 @@ class RadioTest {
         int actual = radio.getCurrentVolume();
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void shouldShowCurrentRadioStationWithArgConst() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadioStation(15);
+        int expected = 15;
+        int actual = radio.currentRadioStation;
+        assertEquals(expected, actual);
+    }
 }
