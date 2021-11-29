@@ -1,21 +1,34 @@
 package ru.netology.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
 public class Radio {
-    protected int currentRadioStation;
     protected int currentVolume;
+    protected int countRadioStation = 10;
+    protected int currentRadioStation;
+
+    public Radio() {
+    }
+
+    public Radio(int countRadioStation) {
+        this.countRadioStation = countRadioStation;
+    }
 
     public void setCurrentRadioStation(int currentRadioStation) {
         if (currentRadioStation < 0) {
             return;
         }
-        if (currentRadioStation > 9) {
+        if (currentRadioStation > (countRadioStation - 1)) {
             return;
         }
         this.currentRadioStation = currentRadioStation;
     }
 
     public void increaseRadioStation() {
-        if (currentRadioStation == 9) {
+        if (currentRadioStation >= (countRadioStation - 1)) {
             this.currentRadioStation = 0;
         } else {
             this.currentRadioStation = currentRadioStation + 1;
@@ -24,28 +37,25 @@ public class Radio {
 
     public void decreaseRadioStation() {
         if (currentRadioStation == 0) {
-            this.currentRadioStation = 9;
+            this.currentRadioStation = (countRadioStation - 1);
         } else {
             this.currentRadioStation = currentRadioStation - 1;
         }
     }
 
-    public int getCurrentRadioStation() {
-        return currentRadioStation;
-    }
 
     public void setCurrentVolume(int currentVolume) {
         if (currentVolume < 0) {
             return;
         }
-        if (currentVolume > 10) {
+        if (currentVolume > 100) {
             return;
         }
         this.currentVolume = currentVolume;
     }
 
     public void increaseVolume() {
-        if (currentVolume == 10) {
+        if (currentVolume == 100) {
             return;
         } else {
             this.currentVolume = currentVolume + 1;
@@ -62,5 +72,17 @@ public class Radio {
 
     public int getCurrentVolume() {
         return currentVolume;
+    }
+
+    public int getCountRadioStation() {
+        return countRadioStation;
+    }
+
+    public void setCountRadioStation(int countRadioStation) {
+        this.countRadioStation = countRadioStation;
+    }
+
+    public int getCurrentRadioStation() {
+        return currentRadioStation;
     }
 }
